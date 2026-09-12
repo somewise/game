@@ -1,0 +1,90 @@
+local runs = getgenv().runs or 3
+local speed = getgenv().speed or 0.05
+local remotes = game:GetService("ReplicatedStorage").Remotes
+
+local function buy(item, amt)
+    amt = amt or 1
+    for i = 1, amt do
+        pcall(function() remotes.PurchaseSkillUpgrade:InvokeServer(item) end)
+        task.wait(speed)
+    end
+end
+
+print("started")
+
+for i = 1, runs do
+    print("(loop " .. i .. ")")
+    
+    pcall(function() remotes.CollectTrashBag:FireServer(math.huge, math.huge) end)
+    task.wait(speed)
+
+    buy("Paper_Value")
+    buy("Double_Throw", 5)
+    buy("Extra_Storage", 10)
+    buy("More_Cans", 4)
+    buy("Rats")
+    buy("Fast_Rats", 5)
+    buy("Slimy_Rats")
+    buy("More_Gum", 5)
+    buy("Radius", 5)
+    buy("Unlock_Horse")
+    buy("Better_Fed")
+    buy("Au-79", 5)
+    buy("PURE_Carbon", 15)
+    buy("Rich_People_Stuff", 5)
+    buy("Horses_Eat_Gum?", 3)
+    buy("Married", 5)
+    buy("Unicorns?")
+    buy("Unlock_Gorilla")
+    buy("HUSS_HUSS_HUSS", 5)
+    buy("GOING_GORILLA!")
+    buy("Banany", 5)
+    buy("Goldanna", 15)
+    buy("Dimondanna", 15)
+    buy("Betternanas")
+    buy("Doublanna", 5)
+    buy("Triplanna", 5)
+    buy("Very_Long", 3)
+    buy("Short_King")
+    buy("Unlock_Thundergum")
+    buy("More_Gummy")
+    buy("Faster_Storm", 5)
+    buy("Bigger_Storm", 4)
+    buy("Mesozoic_Era")
+    buy("Bigger_Eggs")
+    buy("Double_Yolk", 5)
+    buy("Triple_Yolk", 10)
+    buy("Quadruple_Yolk", 20)
+    buy("Eggy", 5)
+    buy("Aesop's_Fable", 20)
+    buy("An_Ex-egg-lent_Investment", 20)
+    buy("The_World_Egg", 20)
+    buy("Faster_Eggs", 10)
+    buy("Unlock_Sea")
+    buy("Strong_Cursor", 4)
+    buy("Golden_Touch", 5)
+    buy("Diamond_Cursor", 5)
+    buy("Seaweed")
+    buy("Much_More_To_Clean", 5)
+    buy("More_Shreader", 4)
+    buy("Stronger_Shreader", 5)
+    buy("More_Garbage", 5)
+    buy("One_Mans_Waste_Is_Another_Mans_Treasure", 35)
+    buy("DIAMONDS!_DIAMONDS!", 50)
+    buy("Triplets", 10)
+    buy("Unlock_Seagull")
+    buy("Faster_Seagull", 4)
+    buy("Stronger_Grip", 4)
+    buy("Stronger_Grip2", 10)
+    buy("Craftsmanship", 20)
+    buy("One_Piece", 15)
+    buy("Coming_Soon")
+
+    task.spawn(function()
+        pcall(function() remotes.PrestigeRebirth:InvokeServer() end)
+    end)
+    
+    task.wait(3)
+end
+
+print("done")
