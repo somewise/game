@@ -1,5 +1,5 @@
-local runs = getgenv().runs or 3
-local speed = getgenv().speed or 0.05
+local runs = _G.runs or 3
+local speed = _G.speed or 0.05
 local remotes = game:GetService("ReplicatedStorage").Remotes
 
 local function buy(item, amt)
